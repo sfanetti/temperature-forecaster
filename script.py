@@ -22,7 +22,13 @@ def formatter(dates):
             return dates[int(x)]
         except:
             return ""
-    return lambda x,pos: datetime.fromisoformat(get_dates(x)).strftime("%b %d %H:%M")
+    def fmt(x):
+        dt = datetime.fromisoformat(get_dates(x))
+        if dt.hour == 0:
+            return dt.strftime("%b %d %I %p")
+        else:
+            return dt.strftime("%I %p")
+    return lambda x,pos: fmt(x)
 
 def get_city_weather(city):
     pp = pprint.PrettyPrinter(indent=4)
