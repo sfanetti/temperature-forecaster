@@ -50,7 +50,10 @@ def get_city_weather(city):
         temp = to_fahrenheit(forecast["main"]["feels_like"])
         temps.append(temp)
         dates.append(dt)
+    return dates, temps
 
+
+def plotData(city, dates, temps):
     plt.title(f"The 5 day forecast for {city}")
     plt.plot(dates, temps)
     plt.xlabel("Dates")
@@ -68,7 +71,9 @@ def main():
     if city.upper() == "NONE":
         exit()
     try:
-        get_city_weather(city)
+        data = get_city_weather(city)
+        plotData(city, *data)
+
     except:
         print("Sorry we could not find that region")
         time.sleep(2)
