@@ -24,10 +24,10 @@ def formatter(dates):
             return ""
     def fmt(x):
         dt = datetime.fromisoformat(get_dates(x))
-        if dt.hour == 0 or x == 0 or x == len(dates):
-            return dt.strftime("%b %d %I %p")
+        if dt.hour == 0 or x == 0 or x == len(dates) - 1:
+            return dt.strftime("%b %d %#I %p")
         else:
-            return dt.strftime("%I %p")
+            return dt.strftime("%#I %p")
     return lambda x,pos: fmt(x)
 
 def get_city_weather(city):
