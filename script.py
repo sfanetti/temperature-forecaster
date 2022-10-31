@@ -30,11 +30,11 @@ def formatter(dates):
             return dt.strftime("%#I %p")
     return lambda x,pos: fmt(x)
 
-def get_city_weather(city):
+def get_region_weather(region):
     pp = pprint.PrettyPrinter(indent=4)
 
     API_KEY = config["API_KEY"]
-    API_URL = f"https://api.openweathermap.org/data/2.5/forecast?appid={API_KEY}&q={city}"
+    API_URL = f"https://api.openweathermap.org/data/2.5/forecast?appid={API_KEY}&q={region}"
 
     r = requests.get(API_URL)
     response = r.json()
@@ -53,8 +53,8 @@ def get_city_weather(city):
     return dates, temps
 
 
-def plotData(city, dates, temps):
-    plt.title(f"The 5 day forecast for {city}")
+def plotData(region, dates, temps):
+    plt.title(f"The 5 day forecast for {region}")
     plt.plot(dates, temps)
     plt.xlabel("Dates")
     plt.ylabel("Temperature in Fahrenheit")
@@ -67,12 +67,12 @@ def plotData(city, dates, temps):
 
 def main():
     print("Weather forecaster")
-    city = str(input("For what region do you want weather? "))
-    if city.upper() == "NONE":
+    region = str(input("For what region do you want weather? "))
+    if region.upper() == "NONE":
         exit()
     try:
-        data = get_city_weather(city)
-        plotData(city, *data)
+        data = get_region_weather(region)
+        plotData(region, *data)
 
     except:
         print("Sorry we could not find that region")
