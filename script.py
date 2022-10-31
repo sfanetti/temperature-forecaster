@@ -43,7 +43,6 @@ def main():
     temps = []
     days = set()
     for forecast in forecast_list:
-        #dt = datetime.fromisoformat(forecast['dt_txt']).strftime("%b/%d/%Y")
         dt = forecast['dt_txt']
         days.add(datetime.fromisoformat(forecast['dt_txt']).strftime("%b/%d/%Y"))
         wind_speed = to_mph(forecast['wind']["speed"])
