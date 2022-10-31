@@ -10,6 +10,9 @@ def exercise_1_solution(l):
     def perimeter(side_length): return side_length * 4
     return perimeter(l)
 
+def exercise_1_solution_lambda(l):
+    return (lambda l: l * 4)(l)
+
 
 def exercise_2(alpha):
     my_lst = []
@@ -40,6 +43,7 @@ def main():
 
     print(exercise_1(side_length))
     print(exercise_1_solution(side_length))
+    print(exercise_1_solution_lambda(side_length))
 
     print(exercise_2(alpha))
     print(exercise_2_solution(alpha))
