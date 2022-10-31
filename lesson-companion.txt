@@ -1,0 +1,26 @@
+functional programming lesson - Python lesson 4
+
+------------------------------------------------------
+
+
+perimeter = lambda side_length : side_length * 4
+
+
+------------------------------------------------------
+
+alpha = "abcdefghijklmnopqrstuvwxyz"
+    
+my_lst = [alpha[i] for i in range(10)]
+
+
+------------------------------------------------------
+
+names = ["Alice", "bob", "charlie"]
+
+my_dict = {name: name.upper() for name in names}
+------------------------------------------------------
+
+
+
+
+------------------------------------------------------
