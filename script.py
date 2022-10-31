@@ -66,9 +66,8 @@ def plotData(region, dates, temps):
     plt.show()
 
 def main():
-    print("Weather forecaster")
-    region = str(input("For what region do you want weather? "))
-    if region.upper() == "NONE":
+    region = str(input("Weather Forecaster\nFor what region do you want weather? "))
+    if len(region) == 0 or region.upper() == "NONE":
         exit()
     try:
         data = get_region_weather(region)
@@ -76,7 +75,7 @@ def main():
 
     except:
         print("Sorry we could not find that region")
-        time.sleep(2)
+        time.sleep(1)
         main()  
 
 if __name__ == '__main__':
